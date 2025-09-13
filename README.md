@@ -1,36 +1,209 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weekendly - Your Weekend Planner 🗓️
 
-## Getting Started
+A beautiful, interactive weekend planning application built with Next.js, TypeScript, and modern web technologies. Plan your perfect weekend with drag-and-drop functionality, theme switching, and persistent storage.
 
-First, run the development server:
+![Weekendly Preview](https://via.placeholder.com/800x400/3b82f6/ffffff?text=Weekendly+Preview)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+### Core Features
+- **Activity Browsing**: Browse through a curated list of weekend activities
+- **Drag & Drop Scheduling**: Intuitively organize activities for Saturday and Sunday
+- **Visual Schedule**: Clean, timeline-based view of your weekend plan
+- **Activity Management**: Add, remove, and edit activities with ease
+- **Smart Filtering**: Search and filter activities by category
+- **Duration Tracking**: See how long each activity takes
+
+### Bonus Features
+- **Theme Switching**: Choose from Light, Dark, and Cozy themes
+- **Mood Tracking**: Assign moods to activities (😌 Relaxed, 🥾 Energetic, etc.)
+- **Persistent Storage**: Your plans are automatically saved to localStorage
+- **Responsive Design**: Works perfectly on desktop and mobile
+- **Smooth Animations**: Delightful micro-interactions throughout
+- **Accessibility**: Built with accessibility in mind
+
+### Super Stretch Features
+- **Offline Support**: Works without internet connection
+- **Export Functionality**: Export your weekend plan as an image
+- **Smart Suggestions**: AI-powered activity recommendations
+- **Multi-day Planning**: Support for 3-4 day weekends
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd weekend-planner
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand with Immer
+- **Drag & Drop**: @dnd-kit
+- **Icons**: Lucide React
+- **Testing**: Jest + React Testing Library
+- **Persistence**: localStorage via Zustand persist
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── globals.css        # Global styles and themes
+│   ├── layout.tsx         # Root layout component
+│   └── page.tsx           # Main page component
+├── components/            # Reusable UI components
+│   ├── ActivityCard.tsx   # Activity display component
+│   ├── ActivityList.tsx   # Activities sidebar
+│   ├── ScheduleDay.tsx    # Day schedule container
+│   ├── ThemeSwitcher.tsx  # Theme selection
+│   ├── ThemeProvider.tsx  # Theme context provider
+│   ├── DroppableScheduleDay.tsx  # Drag & drop wrapper
+│   └── DraggableActivityCard.tsx # Draggable activity
+├── lib/                   # Utilities and configuration
+│   └── store.ts          # Zustand store with persistence
+└── __tests__/            # Test files
+    └── ActivityCard.test.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Themes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Weekendly comes with three beautiful themes:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Light**: Clean and bright, perfect for daytime planning
+- **Dark**: Easy on the eyes, great for evening planning
+- **Cozy**: Warm and comfortable, ideal for relaxed weekends
 
-## Learn More
+## 🧪 Testing
 
-To learn more about Next.js, take a look at the following resources:
+Run the test suite:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Run all tests
+npm test
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Run tests in watch mode
+npm run test:watch
+```
 
-## Deploy on Vercel
+## 📱 Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Adding Activities
+1. Browse activities in the left sidebar
+2. Use the search bar to find specific activities
+3. Filter by category (Food, Outdoors, Entertainment, etc.)
+4. Click "Add to Saturday" or "Add to Sunday" buttons
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Organizing Your Schedule
+1. Drag activities within a day to reorder them
+2. Drag activities between Saturday and Sunday
+3. Use the timeline indicators to see the sequence
+4. View total duration for each day
+
+### Customizing Your Experience
+1. Switch themes using the theme selector in the header
+2. Your preferences are automatically saved
+3. Plans persist between browser sessions
+
+## 🔧 Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm test` - Run tests
+- `npm run test:watch` - Run tests in watch mode
+
+### Key Technologies
+
+#### State Management
+The app uses Zustand for state management with Immer for immutable updates:
+
+```typescript
+interface WeekendlyStore {
+  availableActivities: Activity[];
+  schedule: Schedule;
+  activeTheme: Theme;
+  // ... actions
+}
+```
+
+#### Drag & Drop
+Powered by @dnd-kit for accessible, performant drag-and-drop:
+
+```typescript
+<DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+  <SortableContext items={activities} strategy={verticalListSortingStrategy}>
+    {/* Draggable items */}
+  </SortableContext>
+</DndContext>
+```
+
+#### Theming
+CSS custom properties with dynamic theme switching:
+
+```css
+.theme-light { --bg-primary: #ffffff; }
+.theme-dark { --bg-primary: #0f172a; }
+.theme-cozy { --bg-primary: #fef7ed; }
+```
+
+## 🎯 Future Enhancements
+
+- [ ] Activity recommendations based on weather
+- [ ] Social sharing of weekend plans
+- [ ] Calendar integration
+- [ ] Activity cost tracking
+- [ ] Location-based suggestions
+- [ ] Collaborative planning
+- [ ] Mobile app (React Native)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) for the amazing React framework
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS
+- [Zustand](https://github.com/pmndrs/zustand) for simple state management
+- [@dnd-kit](https://dndkit.com/) for accessible drag-and-drop
+- [Lucide](https://lucide.dev/) for beautiful icons
+
+---
+
+**Happy Planning! 🎉**
+
+Built with ❤️ using modern web technologies.

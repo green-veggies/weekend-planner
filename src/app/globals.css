@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+}
+/* Lazy Weekend Theme - Yellowish */
+.theme-default-weekend {
+  
+
+}
+.theme-lazy-weekend {
+  --bg-primary: linear-gradient(135deg, #fff3cd 0%, #ffd166 100%); /* Brighter yellow accent */
+  --bg-secondary: linear-gradient(135deg, #ffeaa7 0%, #fdba21 100%); /* Stronger contrast */
+  --text-primary: #78350f; /* Already good, keep this */
+  --text-secondary: #9a3412; /* Darker secondary text */
+  --border-color: #eab308; /* Strong yellow border */
+  --shadow: 0 4px 12px 0 rgba(233, 179, 8, 0.25), 0 2px 6px 0 rgba(233, 179, 8, 0.15);
+  --card-bg: rgba(255, 251, 235, 0.9);
+  --header-bg: linear-gradient(135deg, #ffd97a 0%, #ffb347 100%);
+}
+
+/* Adventurous Weekend Theme - Green to Blue Gradient */
+.theme-adventurous-weekend {
+  --bg-primary: linear-gradient(135deg, #83e8a8 0%, #81d5bd 100%);
+  --bg-secondary: linear-gradient(135deg, #88d8a5 0%, #68c48a 100%);
+  --bg-accent: linear-gradient(135deg, #4ade80 0%, #10b981 100%);
+  --text-primary: #064e3b;
+  --text-secondary: #047857;
+  --border-color: #059669;
+--shadow: 0 4px 12px 0 rgba(5, 150, 105, 0.25), 0 2px 6px 0 rgba(5, 150, 105, 0.15);
+  --card-bg: rgba(236, 253, 245, 0.9);
+  --header-bg: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+}
+
+/* Family Weekend Theme - Pink to Earthy Gradient */
+.theme-family-weekend {
+  --bg-primary: linear-gradient(135deg, #ef9cc6 0%, #ad5c5c 100%); /* Pink and earthy red mix */
+  --bg-secondary: linear-gradient(135deg, #f2bcd8 0%, #9e5959 100%);
+  --bg-accent: linear-gradient(135deg, #f43f5e 0%, #c026d3 100%);
+  --text-primary: #831843;
+  --text-secondary: #9d174d;
+  --border-color: #db2777;
+  --shadow: 0 4px 12px 0 rgba(185, 28, 28, 0.25), 0 2px 6px 0 rgba(185, 28, 28, 0.15);
+  --card-bg: rgba(252, 231, 243, 0.9);
+  --header-bg: linear-gradient(135deg, #f472b6 0%, #ef4444 100%);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Theme-specific styles */
+.theme-light {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.theme-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.theme-cozy {
+  background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+}
+
+.theme-bg {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.theme-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.theme-dark .theme-header {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.theme-cozy .theme-header {
+  background: rgba(254, 247, 237, 0.8);
+}
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+/* Staggered animations for lists */
+.animate-stagger > * {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+.animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
 }
