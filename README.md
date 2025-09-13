@@ -7,6 +7,7 @@ A beautiful, interactive weekend planning application built with Next.js, TypeSc
 ## ✨ Features
 
 ### Core Features
+
 - **Activity Browsing**: Browse through a curated list of weekend activities
 - **Drag & Drop Scheduling**: Intuitively organize activities for Saturday and Sunday
 - **Visual Schedule**: Clean, timeline-based view of your weekend plan
@@ -15,6 +16,7 @@ A beautiful, interactive weekend planning application built with Next.js, TypeSc
 - **Duration Tracking**: See how long each activity takes
 
 ### Bonus Features
+
 - **Theme Switching**: Choose from Light, Dark, and Cozy themes
 - **Mood Tracking**: Assign moods to activities (😌 Relaxed, 🥾 Energetic, etc.)
 - **Persistent Storage**: Your plans are automatically saved to localStorage
@@ -23,6 +25,7 @@ A beautiful, interactive weekend planning application built with Next.js, TypeSc
 - **Accessibility**: Built with accessibility in mind
 
 ### Super Stretch Features
+
 - **Offline Support**: Works without internet connection
 - **Export Functionality**: Export your weekend plan as an image
 - **Smart Suggestions**: AI-powered activity recommendations
@@ -31,23 +34,27 @@ A beautiful, interactive weekend planning application built with Next.js, TypeSc
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd weekend-planner
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -111,18 +118,21 @@ npm run test:watch
 ## 📱 Usage
 
 ### Adding Activities
+
 1. Browse activities in the left sidebar
 2. Use the search bar to find specific activities
 3. Filter by category (Food, Outdoors, Entertainment, etc.)
 4. Click "Add to Saturday" or "Add to Sunday" buttons
 
 ### Organizing Your Schedule
+
 1. Drag activities within a day to reorder them
 2. Drag activities between Saturday and Sunday
 3. Use the timeline indicators to see the sequence
 4. View total duration for each day
 
 ### Customizing Your Experience
+
 1. Switch themes using the theme selector in the header
 2. Your preferences are automatically saved
 3. Plans persist between browser sessions
@@ -137,58 +147,6 @@ npm run test:watch
 - `npm run lint` - Run ESLint
 - `npm test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
-
-### Key Technologies
-
-#### State Management
-The app uses Zustand for state management with Immer for immutable updates:
-
-```typescript
-interface WeekendlyStore {
-  availableActivities: Activity[];
-  schedule: Schedule;
-  activeTheme: Theme;
-  // ... actions
-}
-```
-
-#### Drag & Drop
-Powered by @dnd-kit for accessible, performant drag-and-drop:
-
-```typescript
-<DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-  <SortableContext items={activities} strategy={verticalListSortingStrategy}>
-    {/* Draggable items */}
-  </SortableContext>
-</DndContext>
-```
-
-#### Theming
-CSS custom properties with dynamic theme switching:
-
-```css
-.theme-light { --bg-primary: #ffffff; }
-.theme-dark { --bg-primary: #0f172a; }
-.theme-cozy { --bg-primary: #fef7ed; }
-```
-
-## 🎯 Future Enhancements
-
-- [ ] Activity recommendations based on weather
-- [ ] Social sharing of weekend plans
-- [ ] Calendar integration
-- [ ] Activity cost tracking
-- [ ] Location-based suggestions
-- [ ] Collaborative planning
-- [ ] Mobile app (React Native)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📄 License
 
@@ -205,5 +163,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Happy Planning! 🎉**
-
-Built with ❤️ using modern web technologies.
