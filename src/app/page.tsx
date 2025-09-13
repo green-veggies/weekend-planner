@@ -164,7 +164,7 @@ export default function Home() {
                   <Calendar className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Weekendly</h1>
+                  <h1 className="text-2xl font-bold text-gray-900">Weekypedia</h1>
                   <p className="text-sm text-gray-600">Plan your perfect weekend</p>
                 </div>
               </div>

@@ -1,8 +1,8 @@
-# Weekendly - Your Weekend Planner 🗓️
+# Weekipedia - Your Weekend Planner 🗓️
 
 A beautiful, interactive weekend planning application built with Next.js, TypeScript, and modern web technologies. Plan your perfect weekend with drag-and-drop functionality, theme switching, and persistent storage.
 
-![Weekendly Preview](https://via.placeholder.com/800x400/3b82f6/ffffff?text=Weekendly+Preview)
+![Weekipedia Preview](https://via.placeholder.com/800x400/3b82f6/ffffff?text=Weekendly+Preview)
 
 ## ✨ Features
 
