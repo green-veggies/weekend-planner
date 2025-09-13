@@ -253,11 +253,6 @@ const LongWeekendTracker: React.FC = () => {
                 </div>
               )}
             </div>
-
-            {/* Footer - fixed height */}
-            <div className="p-4 border-t bg-gray-50 text-center text-sm text-gray-500 flex-shrink-0">
-              <p>Holiday data provided by Abstract API</p>
-            </div>
           </div>
         </div>
       )}
